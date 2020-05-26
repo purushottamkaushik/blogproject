@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load staticfiles%}
+<head>
+    <meta charset="UTF-8">
+    <title>{{post.title}}</title>
+
+    <link rel="stylesheet" href="{% static 'css/blog.css'%}">
+</head>
+<body>
+
+    <h1>{{post.title}}</h1>
+            <p id="date"> published by {{post.author}} on {{post.publish}}</p>
+            {{post.body | linebreaks}}
+<br>
+<br>
+
+
+<a href="/{{post.id}}/share/" class="btn btn-primary btn-sucess">Share Post by Email </a>
+
+
+
+    {%if csubmit%}
+        <h2 class="jumbotron">Comment submitted successfully....</h2>
+    {%else%}
+            <form action="" method="post">
+                {{form.as_p}}
+                {%csrf_token%}
+                <input type="submit" class="btn btn-primary btn-sucess " value="Submit Comment">
+            </form>
+    {%endif%}
+
+    {% with comments.count as comments_count%}
+        <h2>{{comments_count}} Comment{{comments_count | pluralize}}</h2>
+    {%endwith%}
+
+    {%if comments%}
+    {%for comment in comments%}
+        <p>Commented by {{comment.name}} on {{comment.created}}</p>
+            <p> {{comment.body}}</p>
+    {%endfor%}
+     {%else%}
+        <p>No comments found</p>
+    {%endif%}
+
+</body>
+</html>

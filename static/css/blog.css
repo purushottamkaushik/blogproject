@@ -1,0 +1,49 @@
+.content {
+    width : 60%;
+    float : left;
+    background : black;
+    color : white;
+    padding : 0 0 0 30px;
+}
+
+
+.sidebar {
+  width : 30%;
+  float :right;
+  background : green ;
+  color :red;
+  padding : 2px;
+}
+
+
+body {
+    background : black;
+}
+
+
+#foot {
+    color : blue;
+    align : center;
+}
+
+
+
+
+h1 {
+    color :blue;
+}
+
+ p {
+    font-family : Arial;
+    text-align : justified;
+    color : red;
+    width : 60%;
+}
+
+#tags {
+color: yellow;
+}
+
+.sidebar ul a {
+    color : white;
+}
